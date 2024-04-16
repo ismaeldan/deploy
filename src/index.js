@@ -1,6 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
+const rota = require('./routers/rotas')
 
 const app = express()
 
@@ -8,8 +9,6 @@ app.use(cors())
 
 app.use(express.json())
 
-app.get('/', async (req, res) => {
-  return res.json('Fernanda Te amo')
-})
+app.use(rota)
 
 app.listen(process.env.PORT)
